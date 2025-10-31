@@ -15,6 +15,7 @@ import { QueryClient } from "@tanstack/query-core";
 import { VueQueryPlugin } from "@tanstack/vue-query";
 
 import "./style.css";
+import "primeicons/primeicons.css";
 
 import { initTheme } from "./theme-manager.ts";
 
