@@ -129,7 +129,7 @@ import { defineAsyncComponent } from "vue";
 import { useDialog } from "primevue/usedialog";
 import Button from "primevue/button";
 
-import { ref, computed, onMounted, onBeforeUnmount, watch } from "vue";
+import { ref, onMounted, onBeforeUnmount, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
 const ConfirmLogoutAsync = defineAsyncComponent(

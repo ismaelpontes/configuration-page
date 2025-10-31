@@ -187,10 +187,9 @@ import type { UserDTO } from "../types/user.dto";
 const props = defineProps<{ id?: string }>();
 const localId = ref<number>(props.id ? Number(props.id) : 1);
 
-const { data, error, isLoading, isError, isFetching, refetch } = useUser(
-  localId,
-  { enabled: false }
-);
+const { data, error, isLoading, isError, isFetching } = useUser(localId, {
+  enabled: false,
+});
 
 const qc = useQueryClient();
 
