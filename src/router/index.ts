@@ -12,12 +12,24 @@ const routes: RouteRecordRaw[] = [
         component: () => import("../pages/SettingsHome.vue"),
       },
       {
+        path: "perfil/:id?",
+        name: "settings-perfil",
+        component: () => import("../pages/UserProfile.vue"),
+        props: (route) => ({ id: route.params.id }),
+      },
+      {
         path: ":submenu",
         name: "settings-sub",
         component: () => import("../pages/SettingsSubpage.vue"),
         props: true,
       },
     ],
+  },
+  {
+    path: "/user/:id?",
+    name: "user-profile",
+    component: () => import("../pages/UserProfile.vue"),
+    props: (route) => ({ id: route.params.id }),
   },
   {
     path: "/",

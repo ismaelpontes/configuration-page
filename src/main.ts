@@ -6,6 +6,13 @@ import router from "./router";
 import LARA from "@primeuix/themes/lara";
 
 import InputSwitch from "primevue/inputswitch";
+import DialogService from "primevue/dialogservice";
+import DynamicDialog from "primevue/dynamicdialog";
+import Button from "primevue/button";
+import Avatar from "primevue/avatar";
+
+import { QueryClient } from "@tanstack/query-core";
+import { VueQueryPlugin } from "@tanstack/vue-query";
 
 import "./style.css";
 
@@ -23,7 +30,24 @@ app.use(PrimeVue, {
   ripple: true,
 });
 
+app.use(DialogService);
+
 app.component("InputSwitch", InputSwitch);
+app.component("DynamicDialog", DynamicDialog);
+app.component("Button", Button);
+app.component("Avatar", Avatar);
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      staleTime: 1000 * 60 * 2,
+    },
+  },
+});
+app.use(VueQueryPlugin, { queryClient });
 
 app.use(router);
 
